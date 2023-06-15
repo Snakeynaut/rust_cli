@@ -9,13 +9,9 @@ fn main() {
         process::exit(1);
     });
 
-    let current_direc = env::current_dir()
-        .expect("Unable to read current directory")
-        .to_str().expect("Unable to open directory").to_string();
-
-    println!("Searching for {}", config.query);
-    println!("In file {}", config.filepath);
-    println!("Current directory is {:?}", current_direc);
+    // let current_direc = env::current_dir()
+    //     .expect("Unable to read current directory")
+    //     .to_str().expect("Unable to open directory").to_string();
 
     if let Err(e) = rust_cli::run(config) {
         println!("Application Error: {e}");
