@@ -5,7 +5,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
 
     let config = Config::build(&args).unwrap_or_else(|err| {
-        println!("Problem parsing arguments: {err}");
+        eprintln!("Problem parsing arguments: {err}");
         process::exit(1);
     });
 
@@ -14,7 +14,7 @@ fn main() {
     //     .to_str().expect("Unable to open directory").to_string();
 
     if let Err(e) = rust_cli::run(config) {
-        println!("Application Error: {e}");
+        eprintln!("Application Error: {e}");
         process::exit(1);
     }
 
